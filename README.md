@@ -14,7 +14,7 @@ Scope of ecosystem service valuation. The biophysical water models can be transl
 
 Project Objectives:
 Formally assess EGS values of park managers and visitors
- - Valuation: Flood regulation, recreation, fire control, etc.
+ - Valuation: Flood regulation, recreation, fire control, and more.
 
 Methodology:
  - Travel Cost Model

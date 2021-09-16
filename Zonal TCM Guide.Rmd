@@ -1,0 +1,119 @@
+---
+title: "Zonal TCM Building"
+author: "David Lewis"
+last edited: 9/14/2021
+output:
+  html_document:
+    df_print: paged
+---
+
+Need update (9/7/2021)
+
+
+#Data and Background  
+
+Time Scale: 2000-2019  
+
+Recreational Sites for Visitation: 
+
+  - Stanislaus NF (data deconstructed)
+  - Yosemite NP & Merced River (data decontstructed)  
+  - Inyo NF (data collected)  
+  - Sierra NF (data collected)  
+  - Sequoia & Kings Canyon NP & King River (data deconstructed)  
+
+Historic Environmental Data (Monthly/Yearly):  
+
+  - Fires in site boundaries
+    - area burned, duration, severity, time since fire (this is a low priority for the project overall)  
+  - Weather  
+    - number of extreme hot and cold days (+ 95F for hot and below 32F for Cold)  
+    - Drought years/months noted
+    - Snowpack total  
+    - Precipitation levels/month  
+  - King and Merced river data  
+    - discharge and flow rates  
+  - levels  
+
+Possible Explanatory Variables  
+
+  - Closures (Seasonal/Disasters/Infrastructure)  
+    - Need to manually convert to date ranges still.  
+  
+Possibly Needed:  
+
+  - Demographic data
+  - Forest composition
+  - Vegetation mortality
+  - Air Quality (proxies?)
+ 
+#To Do:  
+
+1. Continue data deconstruction and pooling for each site.  
+  - Reduce to basic data for each zone:  
+    - Travel distances or origins (by zip)  
+    - Travel Time  
+    - Sites Visited  (by forest)
+    - Duration of Visit (nights away?)
+    - Entree/Use Fee  
+    - Total # of visitors   
+    - Cost of travel  (GSA mileage)
+    - Clean up remaining data  
+    - closures into date ranges and assign zone  
+    - assign zones to environmental data  
+    
+2. Begin coding  
+  - establish data directory  
+  - code blocks for each step  
+
+3. Integration of historic environmental data into model  
+  - or regression analysis after?  
+  
+4. Identify data needed to elevate model into a ICTM and RUTCM  
+
+#Model Building  
+
+1. Define zones surrounding or within the site.  
+  - National Forest boundaries  
+  - National Park Boundaries?  
+    - Zones within this?  
+    - Keep specific, zones nested, so the TCM reflects the overall trends.
+    
+2. Allocate and define number of visitors within each zone each year or month (temporal resolution to be set)  
+
+3. Calculate percentage of total visitation per year/month for each zone.  
+
+4. Calculate percentage of total visitation per year/month for cumulative research area (all NF/NPs)  
+
+5. Calculate the average travel cost per trip to the site for each zone.  
+  – Calculate average round trip travel distance and travel time  
+    - Data needed for calculation - travel distance (or origin) and total travel time  
+    – Assume Zone 0 = zero travel distance and time  
+  – Multiply average travel distance for each zone by standard cost per mile  
+    - establish a standard cost per mile  
+      -  Gas price + fuel efficiency for each year.  
+  – Multiply average travel time for each zone by the cost of time  
+    - establish a standard cost per time. 
+      - Look at Carlo's code and papers.
+      - 80% of wage rate (find reference). Median income from data or national/CA statistics
+  – Add travel and time cost together  
+
+Basic matrix of:   
+   Zone - Round Trip Distance - Distance X cost/mile - Round trip travel time - Travel time X cost/mile - Total Travel Cost/Trip  
+    0               X miles         $ per mile            Time in Days                    $ per day                 $
+    
+6. Determine trip generation function  
+    - Regression of visits from each zone against travel cost for each zone  
+    
+7. Construct a demand function based on TGF   
+  - entry fees or use fees?  
+  - pooled or generalized?  
+
+### Stakeholder
+
+Ecosystem service questions
+Rank top EGS?
+Responses give background info, potentially
+How much does recreation impact management decision making?
+What do managers want to know from a valuation study as far as decision making?
+*Do we need info to fill in the modeling?*
